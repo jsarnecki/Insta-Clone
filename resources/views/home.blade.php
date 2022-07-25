@@ -17,6 +17,9 @@
                 <div class="count-description-item"><strong>43k</strong> followers</div>
                 <div class="count-description-item"><strong>212</strong> following</div>
             </div>
+            <div class="pt-4"><strong>website name here</strong></div>
+            <div> lorem ipsum description for account here </div>
+            <div><a href="#">link to website here</a></div>
         </div>
 
     </div>
