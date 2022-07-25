@@ -15,3 +15,14 @@
 .count-description-item {
     padding-right: 15px;
 }
+
+.image-container {
+    padding-top: 20px;
+}
+
+.dashboard-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    padding-top: 15px;
+}
