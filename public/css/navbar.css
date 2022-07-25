@@ -1,0 +1,10 @@
+.nav-logo {
+    max-height: 20px;
+    padding-right: 7px;
+}
+
+.nav-title {
+    padding-left: 7px;
+    border-left: 1px solid black;
+    padding-top: 1.5px;
+}
