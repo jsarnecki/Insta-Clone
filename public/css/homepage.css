@@ -4,6 +4,14 @@
     padding: 5px;
 }
 
-.test {
-    color: red;
+.description-box {
+    padding-top: 5px;
+}
+
+.count-description {
+    display: flex;
+}
+
+.count-description-item {
+    padding-right: 15px;
 }
