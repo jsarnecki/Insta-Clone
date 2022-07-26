@@ -19,7 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/p', [App\Http\Controllers\ProfilesController::class, 'create']);
+Route::get('/p/create', [App\Http\Controllers\PostsController::class, 'create']);
+// When visiting /p it checks the ProfilesController, and finds the 'create' method, which then points to the views/posts/create
 
 Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
 // 'index' is simply the name of the method
