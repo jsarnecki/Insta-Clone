@@ -9,7 +9,8 @@ class ProfilesController extends Controller
 {
     public function index($user) // 'index' is simply name of the method
     {
-        $user = User::find($user);
+        $user = User::findOrFail($user);  // Sends a 404 error if not found
+
         return view('home', [   //Refers to the home.blade.php file within views
             // 2nd arg can be an array
             'user' => $user,

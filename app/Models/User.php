@@ -43,6 +43,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function posts() // plural - one to many relation - this user has many posts
+    {
+        return $this->hasMany(Post::class);
+    }
+
     public function profile()
     {
         return $this->hasOne(Profile::class);
