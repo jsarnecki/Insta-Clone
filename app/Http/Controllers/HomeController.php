@@ -23,6 +23,6 @@ class  HomeController extends Controller
      */
     public function index()
     {
-        return view('home'); //Refers to the home.blade.php file within views
+        return view('home'); //Refers to the index.blade.php file within views
     }
 }

@@ -11,7 +11,7 @@ class ProfilesController extends Controller
     {
         $user = User::findOrFail($user);  // Sends a 404 error if not found
 
-        return view('home', [   //Refers to the home.blade.php file within views
+        return view('profiles.index', [   //Refers to the index.blade.php file within views
             // 2nd arg can be an array
             'user' => $user,
         ]);
