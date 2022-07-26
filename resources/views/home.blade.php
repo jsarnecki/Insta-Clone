@@ -17,9 +17,9 @@
                 <div class="count-description-item"><strong>43k</strong> followers</div>
                 <div class="count-description-item"><strong>212</strong> following</div>
             </div>
-            <div class="pt-4"><strong>website name here</strong></div>
-            <div> lorem ipsum description for account here.. and here let me just type some more random shit to make this even longer than is necessary okay great </div>
-            <div><a href="#">link to website here</a></div>
+            <div class="pt-4"><strong>{{ $user->profile->title }}</strong></div>
+            <div>{{ $user->profile->description }}</div>
+            <div><a href="#">{{ $user->profile->url  }}</a></div>
         </div>
 
         <div class="row image-container">
