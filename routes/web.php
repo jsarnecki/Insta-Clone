@@ -19,4 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
+// 'index' is simply the name of the method
+// 'profile.show' is referring to the restful resource controllers (.index / .create / .edit / etc) 'show' is 'read' (from bread/crud)
+
