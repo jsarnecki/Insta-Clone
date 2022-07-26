@@ -11,7 +11,7 @@
             <img class="first" alt="first image added" src="https://external-preview.redd.it/QJR9EFbelLAg4a8DfHwFF7PJO1lIFWkda9mB81WJUow.jpg?width=640&crop=smart&auto=webp&s=baf5ef7ccdd714fb30ff8255360fff5286b809f3">
         </div>
         <div class="description-box col-9">
-            <div><h1>Insta-Clone</h1></div>
+            <div><h1>{{ $user -> username }}</h1></div>
             <div class="count-description">
                 <div class="count-description-item"><strong>123</strong> posts</div>
                 <div class="count-description-item"><strong>43k</strong> followers</div>
