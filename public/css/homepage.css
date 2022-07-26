@@ -26,3 +26,9 @@
     object-fit: cover;
     padding-top: 15px;
 }
+
+.profile-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
