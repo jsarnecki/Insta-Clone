@@ -67,4 +67,13 @@ class PostsController extends Controller
 
         return redirect('/profile/' . auth()->user()->id);
     }
+
+    public function show(\App\Models\Post $post) //Having App\Models\Post auto finds the GET $post
+    {
+        return view('posts.show', compact('post'));
+        // Within posts.show (blade file) will show in views, and will have the var 'post' available for use
+    }
+
+
+
 }
