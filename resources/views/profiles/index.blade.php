@@ -26,15 +26,13 @@
         </div>
 
         <div class="row image-container">
-            <div class="col-4">
-               <img class="dashboard-img" src="https://i.pinimg.com/originals/cc/57/a7/cc57a7094af5c1f4abfcd44808ebaf28.jpg">
-            </div>
-            <div class="col-4">
-                <img class="dashboard-img" src="https://i.pinimg.com/736x/9e/c0/ba/9ec0ba556cc68b9c51801cb08f338039--doona-bae.jpg">
-            </div>
-            <div class="col-4">
-                <img class="dashboard-img" src="https://nsbb.in/wp-content/uploads/2022/03/Bae-Doona-Biography-Actress-Wiki-Age-Boyfriend-Family-Facts-810x731.jpg">
-            </div>
+
+            @foreach($user->posts as $post)
+                <div class="col-4">
+                    <img class="dashboard-img" src="/storage/{{ $post->image }}">
+                </div>
+            @endforeach
+
         </div>
 
     </div>
