@@ -13,7 +13,7 @@
         <div class="description-box col-9">
             <div class="profile-title-container">
                 <h1>{{ $user -> username }}</h1>
-                <a href="#">Add New Post</a>
+                <a href="/p/create">Add New Post</a>
             </div>
             <div class="count-description">
                 <div class="count-description-item"><strong>123</strong> posts</div>
