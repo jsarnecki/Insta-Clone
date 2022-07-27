@@ -9,6 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $guarded = []; // Saying to not guard anything regarding validation in the PostController, as it's already done manually there
+
     public function user()
     {
         return $this->belongsTo(User::class);
