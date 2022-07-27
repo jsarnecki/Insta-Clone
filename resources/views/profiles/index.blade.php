@@ -16,7 +16,7 @@
                 <a href="/p/create">Add New Post</a>
             </div>
             <div class="count-description">
-                <div class="count-description-item"><strong>123</strong> posts</div>
+                <div class="count-description-item"><strong>{{ $user->posts->count() }}</strong> posts</div>
                 <div class="count-description-item"><strong>43k</strong> followers</div>
                 <div class="count-description-item"><strong>212</strong> following</div>
             </div>

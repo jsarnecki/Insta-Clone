@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
@@ -51,6 +52,9 @@ class PostsController extends Controller
         */
 
         $imagePath = \request('image')->store('uploads', 'public');
+
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(300, 300);
+        $image->save();
 
         // To authenticate the user, we can post through the user authentication
         //auth()->user()->posts()->create($data); // We could use just the $data obj, but we have to add the imagePath manually
