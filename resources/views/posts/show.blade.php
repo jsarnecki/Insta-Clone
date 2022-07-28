@@ -14,7 +14,7 @@
           <div>
               <div class="show-title-container">
                   <div class="profile-img-small-container">
-                      <img class="profile-img-small" src="/storage/{{ $post->user->profile->image }}" alt="{{$post->caption}}">
+                      <img class="profile-img-small" src="{{ $post->user->profile->profileImage() }}" alt="{{$post->caption}}">
                   </div>
                   <div>
                       <div>
@@ -23,6 +23,7 @@
                                   <strong>{{ $post->user->username }}</strong>
                               </span>
                           </a>
+                          <a href="#" class="follow-btn">Follow</a>
                       </div>
                   </div>
               </div>

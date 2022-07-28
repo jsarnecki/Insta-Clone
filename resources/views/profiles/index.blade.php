@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
         <div class="col-3">
-            <img class="first" alt="profile image" src="/storage/{{ $user->profile->image }}">
+            <img class="first" alt="profile image" src="{{ $user->profile->profileImage() }}">
         </div>
         <div class="description-box col-9">
             <div class="profile-title-container">

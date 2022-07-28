@@ -16,3 +16,8 @@
     color: black;
     /*border-bottom-style: none;  doesn't fuckin work*/
 }
+
+.follow-btn {
+    font-size: 0.8em;
+    padding-left: 5px;
+}
