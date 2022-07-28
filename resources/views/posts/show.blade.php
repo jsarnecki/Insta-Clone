@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('styles')
+    <link href="{{ asset('css/show.css') }}" rel="stylesheet">
+@endpush
+
 @section('content')
 <div class="container">
   <div class="row">
@@ -8,8 +12,34 @@
       </div>
       <div class="col-4">
           <div>
-              <h3>{{ $post->user->username }}</h3>
-              <p>{{ $post->caption }}</p>
+              <div class="show-title-container">
+                  <div class="profile-img-small-container">
+                      <img class="profile-img-small" src="/storage/{{ $post->user->profile->image }}" alt="{{$post->caption}}">
+                  </div>
+                  <div>
+                      <div>
+                          <a href="/profile/{{ $post->user->id }}">
+                              <span class="a-tag-dark">
+                                  <strong>{{ $post->user->username }}</strong>
+                              </span>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <hr>
+
+              <p>
+                  <span>
+                      <a href="/profile/{{ $post->user->id }}">
+                          <span class="a-tag-dark">
+                              <strong>{{ $post->user->username }}</strong>
+                          </span>
+                      </a>
+                  </span>
+                    {{ $post->caption }}
+                  </span>
+              </p>
           </div>
       </div>
   </div>

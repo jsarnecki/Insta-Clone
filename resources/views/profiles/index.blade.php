@@ -8,14 +8,23 @@
 <div class="container">
     <div class="row">
         <div class="col-3">
-            <img class="first" alt="first image added" src="https://external-preview.redd.it/QJR9EFbelLAg4a8DfHwFF7PJO1lIFWkda9mB81WJUow.jpg?width=640&crop=smart&auto=webp&s=baf5ef7ccdd714fb30ff8255360fff5286b809f3">
+            <img class="first" alt="profile image" src="/storage/{{ $user->profile->image }}">
         </div>
         <div class="description-box col-9">
             <div class="profile-title-container">
                 <h1>{{ $user -> username }}</h1>
-                <a href="/p/create">Add New Post</a>
+
+                @can('update', $user->profile) {{-- Adds auth so only logged in user can add new post\ --}}
+                    <a href="/p/create">Add New Post</a>
+                @endcan
+
+
             </div>
-            <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+
+            @can('update', $user->profile) {{-- Adds auth so only logged in user can edit --}}
+                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+            @endcan
+
             <div class="count-description">
                 <div class="count-description-item"><strong>{{ $user->posts->count() }}</strong> posts</div>
                 <div class="count-description-item"><strong>43k</strong> followers</div>

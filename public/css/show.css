@@ -1,0 +1,18 @@
+.profile-img-small {
+    border-radius: 50%;
+    width: 35px;
+}
+
+.show-title-container {
+    display: flex;
+    align-items: center;
+}
+
+.profile-img-small-container {
+    padding-right: 5px;
+}
+
+.a-tag-dark {
+    color: black;
+    /*border-bottom-style: none;  doesn't fuckin work*/
+}
