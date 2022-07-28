@@ -26,10 +26,12 @@ class ProfilesController extends Controller
     public function edit(User $user)
     // Instead of passing \App\Models\User we can just pass 'User', as it is imported at the top
     {
+        $this->authorize('update', $user->profile);
+        // Authorizes 'update' on this $user's profile
         return view('profiles.edit', compact('user'));
     }
 
-    public function update()
+    public function update(User $user)
     {
         $data = \request()->validate([
            'title'=>'required',
@@ -38,6 +40,10 @@ class ProfilesController extends Controller
            'image'=>'',
         ]);
 
-        dd($data);
+        auth()->user->profile->update($data);
+        // Can update without auth() ei: $user->profile..etc
+        // But anyone can access + edit, so auth adds an extra layer of protection
+
+        return redirect("/profile/{$user->id}");
     }
 }

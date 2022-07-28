@@ -9,6 +9,8 @@ class Profile extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function user() // This naming convention of having this func be the same name as the model (it can be overridden)
     {
         return $this->belongsTo(User::class); // Shows 1-1 relationship between Profile+User
