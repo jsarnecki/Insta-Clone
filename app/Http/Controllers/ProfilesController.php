@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProfilesController extends Controller
 {
     public function index(\App\Models\User $user) // \App\Models\User finds the user automagically, so don't need to findOrFail
-        // 'index' is simply name of the method
+        // 'index' is simply name of the metho
     {
         // $user = User::findOrFail($user);  // Sends a 404 error if not found
         //
@@ -27,5 +27,17 @@ class ProfilesController extends Controller
     // Instead of passing \App\Models\User we can just pass 'User', as it is imported at the top
     {
         return view('profiles.edit', compact('user'));
+    }
+
+    public function update()
+    {
+        $data = \request()->validate([
+           'title'=>'required',
+           'description'=>'required',
+           'url'=>'url', // Must be a URL - ei expects http://..
+           'image'=>'',
+        ]);
+
+        dd($data);
     }
 }
