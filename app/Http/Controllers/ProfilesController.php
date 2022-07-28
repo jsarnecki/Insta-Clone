@@ -49,11 +49,14 @@ class ProfilesController extends Controller
             $imagePath = \request('image')->store('profile', 'public');
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(300, 300);
             $image->save();
+
+            $imageArr = ['image' => $imagePath];
         }
 
         auth()->user()->profile->update(array_merge(
             $data,
-            ['image' => $imagePath], // Overrides the 'image' property inside $data with $imagePath
+            $imageArr ?? [], // If no img is set, breaks code, so default to empty arr to fix
+            // Overrides the 'image' property inside $data with $imagePath
         ));
         // Can update without auth() ei: $user->profile..etc
         // But anyone can access + edit, so auth adds an extra layer of protection
