@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -13,6 +14,19 @@ class PostsController extends Controller
         $this->middleware('auth');
         // Every method within this controller will need authorization
         // Ie: not being able to open /p/create unless signed in
+    }
+
+    public function index()
+    {
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+        // Plucks all the user ids out of the current authed user's following profiles
+
+        $posts = Post::whereIn('user_id', $users)->latest()->get();
+        // whereIn takes a property to find, and an array in which to find it.
+        // latest() is a shortened version of the commonly used: orderBy('created_at', 'DESC')
+
+
+        dd($posts);
     }
 
 
