@@ -5278,9 +5278,21 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     followUser: function followUser() {
+      var _this = this;
+
       axios.post('/follow/' + this.userId).then(function (res) {
+        _this.status = !_this.status;
         console.log(res.data);
+      })["catch"](function (err) {
+        if (err.response.status == 401) {
+          window.location = '/login';
+        }
       });
+    }
+  },
+  computed: {
+    buttonText: function buttonText() {
+      return this.status ? 'Unfollow' : 'Follow';
     }
   }
 });
@@ -5305,10 +5317,13 @@ var render = function render() {
 
   return _c("div", [_c("button", {
     staticClass: "btn btn-primary w",
+    domProps: {
+      textContent: _vm._s(_vm.buttonText)
+    },
     on: {
       click: _vm.followUser
     }
-  }, [_vm._v("Follow")])]);
+  })]);
 };
 
 var staticRenderFns = [];

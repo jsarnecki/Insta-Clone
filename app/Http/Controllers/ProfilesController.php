@@ -22,8 +22,6 @@ class ProfilesController extends Controller
         //Determine how to find out if this user follows that profile so it can be passed to our views
         // Is the auth user following the passed in $user? else return false
 
-        dd($follows);
-
         return view('profiles.index', compact('user', 'follows'));
         // Compact creates an array out of the variable/obj properties passed to it
         // meaning, not needing to pass in all the properties manually
