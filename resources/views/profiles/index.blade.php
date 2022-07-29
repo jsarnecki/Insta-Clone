@@ -15,7 +15,7 @@
                 <div  class="profile-title-follow">
                     <h1 class="profile-title">{{ $user -> username }}</h1>
 
-                    <follow-button></follow-button>
+                    <follow-button user-id="{{ $user->id }}"></follow-button>
                 </div>
 
                 @can('update', $user->profile) {{-- Adds auth so only logged in user can add new post\ --}}
