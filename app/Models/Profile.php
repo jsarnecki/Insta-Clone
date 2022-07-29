@@ -21,4 +21,10 @@ class Profile extends Model
         return $this->belongsTo(User::class); // Shows 1-1 relationship between Profile+User
         // You can visit belongsTo func to see that 2nd and 3rd param allow for different naming conventions if needed
     }
+
+    public function followers()
+    {
+    // A user can have many followers: they are Profile's followers
+        return $this->belongsToMany(User::class);
+    }
 }

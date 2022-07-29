@@ -9,7 +9,7 @@ use Intervention\Image\Facades\Image;
 class ProfilesController extends Controller
 {
     public function index(\App\Models\User $user) // \App\Models\User finds the user automagically, so don't need to findOrFail
-        // 'index' is simply name of the metho
+        // 'index' is simply name of the method
     {
         // $user = User::findOrFail($user);  // Sends a 404 error if not found
         //
@@ -18,7 +18,13 @@ class ProfilesController extends Controller
         //     'user' => $user,
         // ]);
 
-        return view('profiles.index', compact('user'));
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+        //Determine how to find out if this user follows that profile so it can be passed to our views
+        // Is the auth user following the passed in $user? else return false
+
+        dd($follows);
+
+        return view('profiles.index', compact('user', 'follows'));
         // Compact creates an array out of the variable/obj properties passed to it
         // meaning, not needing to pass in all the properties manually
 
