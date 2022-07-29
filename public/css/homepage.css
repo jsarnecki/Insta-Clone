@@ -37,3 +37,13 @@
 .dashboard-img {
     margin: 5px;
 }
+
+.profile-title {
+    padding-right: 10px;
+}
+
+.profile-title-follow {
+    display: flex;
+}
+
+

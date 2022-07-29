@@ -12,7 +12,11 @@
         </div>
         <div class="description-box col-9">
             <div class="profile-title-container">
-                <h1>{{ $user -> username }}</h1>
+                <div  class="profile-title-follow">
+                    <h1 class="profile-title">{{ $user -> username }}</h1>
+
+                    <follow-button></follow-button>
+                </div>
 
                 @can('update', $user->profile) {{-- Adds auth so only logged in user can add new post\ --}}
                     <a href="/p/create">Add New Post</a>
