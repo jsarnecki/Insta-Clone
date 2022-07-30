@@ -25,8 +25,7 @@ class PostsController extends Controller
         // whereIn takes a property to find, and an array in which to find it.
         // latest() is a shortened version of the commonly used: orderBy('created_at', 'DESC')
 
-
-        dd($posts);
+        return view('posts.index', compact('posts'));
     }
 
 
