@@ -29,5 +29,12 @@
             </div>
         </div>
     @endforeach
+
+        <div class="row">
+            <div class="col-9">
+                {{ $posts->links() }}
+            </div>
+        </div>
+
 </div>
 @endsection

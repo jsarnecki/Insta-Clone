@@ -22,7 +22,16 @@ class ProfilesController extends Controller
         //Determine how to find out if this user follows that profile so it can be passed to our views
         // Is the auth user following the passed in $user? else return false
 
-        return view('profiles.index', compact('user', 'follows'));
+
+
+        $postCount = $user->posts->count();
+        $followerCount = $user->profile->followers->count();
+        $followingCount = $user->following->count();
+
+
+
+
+        return view('profiles.index', compact('user', 'follows', 'postCount', 'followerCount', 'followingCount'));
         // Compact creates an array out of the variable/obj properties passed to it
         // meaning, not needing to pass in all the properties manually
 
