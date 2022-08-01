@@ -21,9 +21,12 @@ class PostsController extends Controller
         $users = auth()->user()->following()->pluck('profiles.user_id');
         // Plucks all the user ids out of the current authed user's following profiles
 
-        $posts = Post::whereIn('user_id', $users)->latest()->get();
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
         // whereIn takes a property to find, and an array in which to find it.
         // latest() is a shortened version of the commonly used: orderBy('created_at', 'DESC')
+        // paginate: sets how many posts are visible in the index feed before needing to refresh more
+        // when paginate is used instead of ->get(), you are able to connect it to frontend with $posts->links() to show links to more pages (tho not working for mine for some reason)
+        // ->with('user') is connecting to the Posts model user() method
 
         return view('posts.index', compact('posts'));
     }
