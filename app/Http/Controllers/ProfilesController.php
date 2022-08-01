@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User; // Must be imported as User is not in the same namespace as ProfilesController
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Cache;
 
 class ProfilesController extends Controller
 {
@@ -23,12 +24,29 @@ class ProfilesController extends Controller
         // Is the auth user following the passed in $user? else return false
 
 
+        $postCount = Cache::remember(
+            'count.posts.' . $user->id, // cache key, adds the $user->id to make it unique
+            now()->addSecond(30),  // 2nd arg is how long to store the cache (now+30secs)
+            function () use ($user) { // the function doesnt have access to $user, so needs to 'use ($user)'
+                return $user->posts->count();
+        });
 
-        $postCount = $user->posts->count();
-        $followerCount = $user->profile->followers->count();
-        $followingCount = $user->following->count();
+        $followerCount = Cache::remember(
+            'follower.count.' .$user->id,
+            now()->addSecond(30),
+            function () use ($user) {
+                return $user->profile->followers->count();
+        });
 
+        $followingCount = Cache::remember(
+            'following.count' . $user->id,
+            now()->addSecond(30),
+            function () use ($user) {
+                return $user->following->count();
+        });
 
+        // Adds caching for the posts/followers/following count so there aren't db queries everytime the page is visited
+        // could also use Cache::rememberForever - which does not take a 2nd arg
 
 
         return view('profiles.index', compact('user', 'follows', 'postCount', 'followerCount', 'followingCount'));
