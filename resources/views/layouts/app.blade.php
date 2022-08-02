@@ -27,7 +27,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand d-flex" href="/profile/1">
+                <a class="navbar-brand d-flex" href="/profile/{{ Auth::user()->id ?? '/' }}">
                     <div><img src="/svg/instagramlogo.svg" class="nav-logo" alt="insta-logo"></div>
                     <div class="nav-title">Instagram</div>
                 </a>
